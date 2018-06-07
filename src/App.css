@@ -1,0 +1,11 @@
+.main-container{
+  width: 100%;
+  min-height: 100%;
+  
+}
+
+.drawer-style{
+  width: 900px;
+  height: 100%;
+  margin: 0 auto;
+}
