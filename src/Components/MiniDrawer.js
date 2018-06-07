@@ -16,11 +16,10 @@ import { mailFolderListItems } from './tileData';
 import Main from './main';
 import Avatar from '@material-ui/core/Avatar';
 import Collapse from '@material-ui/core/Collapse';
-import Hidden from '@material-ui/core/Hidden';
-import Button from '@material-ui/core/Button';
 import FontAwesome from 'react-fontawesome';
-
 const drawerWidth = 240;
+
+
 
 const styles = theme => ({
   root: {
@@ -53,6 +52,7 @@ const styles = theme => ({
     display: 'none',
   },
   drawerPaper: {
+    height: '100%',
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
@@ -137,12 +137,12 @@ class MiniDrawer extends React.Component {
     
 
     return (
-      <Collapse in={this.state.fadeIn} timeout={1000}>
+      <Collapse in={this.state.fadeIn} timeout={1000} collapsedHeight="60px">
+      
       <div className={classes.root}>
         <AppBar
           position="absolute"
-          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
-        >
+          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
           <Toolbar disableGutters={!this.state.open}>
             <IconButton
               color="inherit"
@@ -152,38 +152,36 @@ class MiniDrawer extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Avatar alt="Kumail Pirzada" src="self.jpg" className={classes.avatar} />
+            <Avatar alt="Kumail Pirzada" src="images/self.jpg" className={classes.avatar} />
             <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
               Kumail Pirzada
             </Typography>
 
 
 
-        <a target="_blank" href="https://twitter.com/akumailp" className={classes.socialLinkA}>
+        <a target="_blank" href="https://twitter.com/akumailp" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="Twitter">
-        <FontAwesome
-        className='fab fa-twitter'
-        name='Twitter'
-      />
-        </IconButton>
+          <FontAwesome
+          className='fab fa-twitter'
+          name='Twitter'/>
+          </IconButton>
         </a>
 
-        <a target="_blank" href="https://github.com/KumailP" className={classes.socialLinkA}>
+        <a target="_blank" href="https://github.com/KumailP" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton color="default" className={classNames(classes.button, classes.socialLinks)} aria-label="Github">
-        <FontAwesome
-            className='fab fa-github'
-            name='Github'/>
-        </IconButton>
+          <FontAwesome
+              className='fab fa-github'
+              name='Github'/>
+          </IconButton>
         </a>
 
 
-        <a target="_blank" href="https://www.linkedin.com/in/kumail-pirzada/" className={classes.socialLinkA}>
+        <a target="_blank" href="https://www.linkedin.com/in/kumail-pirzada/" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="LinkedIn">
-        <FontAwesome
-        className='fab fa-linkedin'
-        name='LinkedIn'
-      />
-        </IconButton>
+          <FontAwesome
+          className='fab fa-linkedin'
+          name='LinkedIn'/>
+          </IconButton>
         </a>
 
           </Toolbar>
@@ -198,7 +196,6 @@ class MiniDrawer extends React.Component {
         >
           {drawer}
         </Drawer>
-
         <main className={classes.content}>
           <div className={classes.toolbar} />
           {/* <Typography noWrap>{'About Page'}</Typography> */}

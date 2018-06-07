@@ -4,20 +4,15 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import InboxIcon from '@material-ui/icons/Face';
 import StarIcon from '@material-ui/icons/Star';
-import SendIcon from '@material-ui/icons/Send';
+import SendIcon from '@material-ui/icons/ViewModule';
 import MailIcon from '@material-ui/icons/Mail';
 import { Link } from 'react-router-dom';
 
-const style = {
-   
-};
-
-
 export const mailFolderListItems = (
   <div>
-    <Link to="/">
+    <Link to="/" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>
           <InboxIcon />
@@ -25,7 +20,7 @@ export const mailFolderListItems = (
         <ListItemText primary="About" />
       </ListItem>
     </Link>
-    <Link to="/skills">
+    <Link to="/skills" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>
           <StarIcon />
@@ -33,7 +28,7 @@ export const mailFolderListItems = (
         <ListItemText primary="Skills" />
       </ListItem>
     </Link>
-    <Link to="/portfolio">
+    <Link to="/portfolio" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>
           <SendIcon />
@@ -41,7 +36,7 @@ export const mailFolderListItems = (
         <ListItemText primary="Portfolio" />
       </ListItem>
     </Link>
-    <Link to="/contact">
+    <Link to="/contact" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>
           <MailIcon />
