@@ -44,8 +44,8 @@ class About extends React.Component{
                     <br/>
                     <Typography align="center" variant="title">Ahmed Kumail Pirzada</Typography>
                     <br/>
-                    <Typography align="center" variant="title">I am a JavaScript developer</Typography>
-                    <br/>
+                    {/* <Typography align="center" variant="title">I am a JavaScript developer</Typography>
+                    <br/> */}
                     <Typography align="center" variant="body1">Hello! I'm Kumail. I am a JavaScript developer and full time Computer Science student.</Typography>
                     <br/>
                     <ExpansionPanel>

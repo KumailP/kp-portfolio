@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 export const mailFolderListItems = (
   <div>
+    
     <Link to="/" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>

@@ -17,6 +17,7 @@ import Main from './main';
 import Avatar from '@material-ui/core/Avatar';
 import Collapse from '@material-ui/core/Collapse';
 import FontAwesome from 'react-fontawesome';
+import Tooltip from '@material-ui/core/Tooltip';
 const drawerWidth = 240;
 
 
@@ -158,7 +159,7 @@ class MiniDrawer extends React.Component {
             </Typography>
 
 
-
+        <Tooltip id="tooltip-icon" title="Twitter">
         <a target="_blank" href="https://twitter.com/akumailp" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="Twitter">
           <FontAwesome
@@ -166,7 +167,9 @@ class MiniDrawer extends React.Component {
           name='Twitter'/>
           </IconButton>
         </a>
+        </Tooltip>
 
+        <Tooltip id="tooltip-icon" title="Github">
         <a target="_blank" href="https://github.com/KumailP" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton color="default" className={classNames(classes.button, classes.socialLinks)} aria-label="Github">
           <FontAwesome
@@ -174,8 +177,10 @@ class MiniDrawer extends React.Component {
               name='Github'/>
           </IconButton>
         </a>
+        </Tooltip>
 
 
+        <Tooltip id="tooltip-icon" title="LinkedIn">
         <a target="_blank" href="https://www.linkedin.com/in/kumail-pirzada/" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="LinkedIn">
           <FontAwesome
@@ -183,6 +188,7 @@ class MiniDrawer extends React.Component {
           name='LinkedIn'/>
           </IconButton>
         </a>
+        </Tooltip>
 
           </Toolbar>
         </AppBar>
