@@ -18,16 +18,17 @@ import Avatar from '@material-ui/core/Avatar';
 import Collapse from '@material-ui/core/Collapse';
 import FontAwesome from 'react-fontawesome';
 import Tooltip from '@material-ui/core/Tooltip';
-const drawerWidth = 240;
+import Hidden from '@material-ui/core/Hidden';
 
 
+const drawerWidth = 200;
 
 const styles = theme => ({
   root: {
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
-    display: 'flex',
+    display: 'flex'
   },
   appBar: {
     backgroundColor: 'rgba(36,97,125,1)',
@@ -105,6 +106,7 @@ class MiniDrawer extends React.Component {
 
   componentDidMount(){
     this.setState({fadeIn: true})
+    
   }
 
   handleDrawerToggle = () => {
@@ -153,12 +155,15 @@ class MiniDrawer extends React.Component {
             >
               <MenuIcon />
             </IconButton>
+            <Hidden smDown>
             <Avatar alt="Kumail Pirzada" src="images/self.jpg" className={classes.avatar} />
+            </Hidden>
             <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
               Kumail Pirzada
             </Typography>
 
 
+            <Hidden xsDown>
         <Tooltip id="tooltip-icon" title="Twitter">
         <a target="_blank" href="https://twitter.com/akumailp" rel="noopener noreferrer" className={classes.socialLinkA}>
         <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="Twitter">
@@ -189,6 +194,7 @@ class MiniDrawer extends React.Component {
           </IconButton>
         </a>
         </Tooltip>
+        </Hidden>
 
           </Toolbar>
         </AppBar>

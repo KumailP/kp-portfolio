@@ -1,3 +1,4 @@
+import '../App.css';
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
@@ -11,7 +12,24 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Typed from 'typed.js';
+import { Link } from 'react-router-dom';
+import Hidden from '@material-ui/core/Hidden';
+import FontAwesome from 'react-fontawesome';
+import IconButton from '@material-ui/core/IconButton';
+import classNames from 'classnames';
 
+
+var options = {
+    strings: ["{ <strong>JavaScript Developer</strong> }",
+             "computer science junior",
+             "machine learning enthusiast",
+             "CS:GO player"],
+    typeSpeed: 35,
+    backSpeed: 20,
+    loop: true
+}
+// var typed = new Typed("#typedcontent", options);
 
 const styles = theme => ({
     avatar: {
@@ -21,6 +39,17 @@ const styles = theme => ({
     },
     paperStyle: {
         paddingTop: '20px'
+    },
+    socialLinks: {
+        color: 'rgba(36,97,125,1)',
+    },
+    hiddenStyle: {
+        width: '100%',
+        textAlign: 'center'
+    },
+    socialLinkA: {
+        textAlign: 'center',
+        textDecoration: 'none'
     }
   });
 
@@ -32,7 +61,19 @@ class About extends React.Component{
         }
     }
     componentDidMount(){
-        this.setState({mounted: true})
+        this.setState({mounted: true});
+
+        this.typed = new Typed("#typedcontent", options);
+        if(document.body.offsetWidth > 657)
+            document.getElementById("newlineHidden").style.display = "none";
+        else
+            document.getElementById("mainTyped").style.fontSize = "18px";
+        
+    }
+    componentWillUnmount(){
+        if(typeof this.typed !== undefined){
+            this.typed.destroy();
+        }
     }
     render(){
         
@@ -44,27 +85,54 @@ class About extends React.Component{
                     <br/>
                     <Typography align="center" variant="title">Ahmed Kumail Pirzada</Typography>
                     <br/>
-                    {/* <Typography align="center" variant="title">I am a JavaScript developer</Typography>
-                    <br/> */}
-                    <Typography align="center" variant="body1">Hello! I'm Kumail. I am a JavaScript developer and full time Computer Science student.</Typography>
+                    <Typography align="center" variant="headline" id="mainTyped">I am a <br id="newlineHidden"/><span id="typedcontent"></span></Typography>
                     <br/>
+                    <Typography align="center" variant="body1" style={{margin: '10px'}}>Hello! I'm Kumail. I make websites and stuff.<br/>Is there something I can do for you? <Link to="/contact">Let me know.</Link></Typography>
+                    <br/>
+                    <Hidden smUp><div className={classes.hiddenStyle}>
+                        <a target="_blank" href="https://twitter.com/akumailp" rel="noopener noreferrer" className={classes.socialLinkA}>
+                        <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="Twitter">
+                        <FontAwesome
+                        className='fab fa-twitter'
+                        name='Twitter'/>
+                        </IconButton>
+                        </a>
+
+                        <a target="_blank" href="https://github.com/KumailP" rel="noopener noreferrer" className={classes.socialLinkA}>
+                        <IconButton color="default" className={classNames(classes.button, classes.socialLinks)} aria-label="Github">
+                        <FontAwesome
+                            className='fab fa-github'
+                            name='Github'/>
+                        </IconButton>
+                        </a>
+
+
+                        <a target="_blank" href="https://www.linkedin.com/in/kumail-pirzada/" rel="noopener noreferrer" className={classes.socialLinkA}>
+                        <IconButton className={classNames(classes.button, classes.socialLinks)} aria-label="LinkedIn">
+                        <FontAwesome
+                        className='fab fa-linkedin'
+                        name='LinkedIn'/>
+                        </IconButton>
+                        </a></div>
+                    </Hidden>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography variant="subheading">Education</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                         <List>
-                            <ListItem component="a" href="http://www.dsu.edu.pk/index.php/en/" target="_blank">
+                            <ListItem button component="a" href="http://www.dsu.edu.pk/index.php/en/" target="_blank">
                             <Avatar alt="DHA Suffa University" src="images/education/dsu.jpg"/>
-                            <ListItemText primary="DHA Suffa University" secondary="2016 – 2020" />
+                            <ListItemText primary="DHA Suffa University" secondary="2016 – 2020 (BS Computer Science)" />
                             </ListItem>
-                            <ListItem component="a" href="https://www.ncr-cet.com/" target="_blank">
+                            <ListItem button component="a" href="https://www.ncr-cet.com/" target="_blank">
                             <Avatar alt="NCR - College of Emerging Technologies" src="images/education/ncr.jpg"/>
-                            <ListItemText primary="NCR - College of Emerging Technologies" secondary="2014 – 2016" />
+                            <ListItemText primary="NCR - College of Emerging Technologies" secondary="2014 – 2016 (Intermediate)" />
                             </ListItem>
-                            <ListItem component="a" href="https://www.beaconhouse.net/" target="_blank">
+                            <ListItem button component="a" href="https://www.beaconhouse.net/" target="_blank">
                             <Avatar alt="Beaconhouse School System - Steel Town Branch" src="images/education/bss.png"/>
-                            <ListItemText primary="Beaconhouse School System - Steel Town Branch" secondary="2012 – 2014" />
+                            <ListItemText primary="Beaconhouse School System - Steel Town Branch" secondary="2012 – 2014 (Matriculation)" />
                             </ListItem>
                         </List>
                         </ExpansionPanelDetails>
@@ -104,5 +172,6 @@ class About extends React.Component{
         )
     }
 }
+
 
 export default withStyles(styles)(About);
