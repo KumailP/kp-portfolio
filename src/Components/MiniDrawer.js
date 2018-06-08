@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { mailFolderListItems } from './tileData';
+import { mailFolderListItems } from './data/tileData';
 import Main from './main';
 import Avatar from '@material-ui/core/Avatar';
 import Collapse from '@material-ui/core/Collapse';
@@ -109,6 +109,7 @@ class MiniDrawer extends React.Component {
     
   }
 
+
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
@@ -140,6 +141,7 @@ class MiniDrawer extends React.Component {
     
 
     return (
+      
       <Collapse in={this.state.fadeIn} timeout={1000} collapsedHeight="60px">
       
       <div className={classes.root}>

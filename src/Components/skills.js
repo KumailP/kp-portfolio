@@ -7,7 +7,7 @@ import Switch from '@material-ui/core/Switch';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import List from '@material-ui/core/List';
-import { frameworkLibrary, languages, devTools, basicView, other } from './skillsData';
+import { frameworkLibrary, languages, devTools, basicView, other } from './data/skillsData';
 
 const styles = theme => ({
     paperStyle: {

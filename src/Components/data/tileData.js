@@ -29,12 +29,12 @@ export const mailFolderListItems = (
         <ListItemText primary="Skills" />
       </ListItem>
     </Link>
-    <Link to="/portfolio" style={{textDecoration: 'none'}}>
+    <Link to="/projects" style={{textDecoration: 'none'}}>
       <ListItem button>
         <ListItemIcon>
           <SendIcon />
         </ListItemIcon>
-        <ListItemText primary="Portfolio" />
+        <ListItemText primary="Projects" />
       </ListItem>
     </Link>
     <Link to="/contact" style={{textDecoration: 'none'}}>
