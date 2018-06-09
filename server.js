@@ -10,7 +10,7 @@ const PORT = normalizePort(process.env.PORT || 3000);
 
 const app = express();
 
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
+app.use(favicon('favicon.ico'))
 const dev = app.get("env") !== "production";
 
 if(!dev){
