@@ -6,12 +6,18 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Typography from '@material-ui/core/Typography';
-import tileData from './data/projectsData';
+import projectData from './data/projectsData';
 import Grow from '@material-ui/core/Grow';
 
 const styles = theme => ({
-    textPad: {
-        paddingBottom: '10px'
+    paperTitle: {
+        paddingBottom: '10px',
+        fontFamily: 'Rancho, cursive',
+        fontSize: '35px'
+    },
+    gridList: {
+      // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+      transform: 'translateZ(0)'
     }
   });
 
@@ -34,24 +40,20 @@ class Projects extends React.Component{
         
         const { classes } = this.props;
         return(
-            <div>
-            <Typography align="center" variant="title" className={classes.textPad}>Some of my projects</Typography>
+            <div className={classes.root}>
+            <Typography align="center" variant="title" className={classes.paperTitle}>Some of my projects</Typography>
                 <Paper className={classes.root} elevation={4}>
-                <GridList cellHeight={180} className={classes.gridList}>
-                    <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                    
-                    </GridListTile>
-                    {tileData.map(function(tile, i){
-                   return <Grow in={true} timeout={i ? (i*500) : (200)}>
-                    <GridListTile key={tile.img}>
-                        <img src={tile.img} alt={tile.title} />
-                        <GridListTileBar
-                        title={tile.title}
-                        subtitle={<span>{tile.desc}</span>} cols={tile.cols || 1}
-                        
-                        />
-                    </GridListTile>
-                     </Grow>
+                <GridList cellHeight={220} spacing={0} className={classes.gridList} cols={2}>
+                    {projectData.map(function(tile, i){
+                    return <Grow in={true} timeout={i ? (i*500) : (200)} key={tile.img} >
+                                <GridListTile>
+                                    <img src={tile.img} alt={tile.title} />
+                                    <GridListTileBar
+                                    title={tile.title}
+                                    subtitle={<span>{tile.desc}</span>}
+                                    />
+                                </GridListTile>
+                        </Grow>
                     })}
                 </GridList>
                 </Paper>

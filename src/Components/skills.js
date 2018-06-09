@@ -8,6 +8,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import List from '@material-ui/core/List';
 import { frameworkLibrary, languages, devTools, basicView, other } from './data/skillsData';
+import '../App.css';
 
 const styles = theme => ({
     paperStyle: {
@@ -21,6 +22,10 @@ const styles = theme => ({
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       })
+    },
+    paperTitle: {
+        fontFamily: 'Rancho, cursive',
+        fontSize: '35px'
     }
   });
 
@@ -50,7 +55,7 @@ class Skills extends React.Component{
         const { classes } = this.props;
         return(
                 <div className={classes.root}>
-                    <Typography align="center" variant="title">I know a little about the following</Typography>
+                    <Typography align="center" variant="title" className={classes.paperTitle}>I know a little about the following</Typography>
                     
                     
 

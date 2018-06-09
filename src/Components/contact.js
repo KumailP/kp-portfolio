@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grow from '@material-ui/core/Grow';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import '../App.css';
 
 const styles = theme => ({
     root: {
@@ -12,6 +13,19 @@ const styles = theme => ({
     },
     formStyle: {
         width: '100%'
+    },
+    textField: {
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
+      
+    },
+    button: {
+        marginTop: 10
+    },
+    paperTitle: {
+        fontFamily: 'Rancho, cursive',
+        fontSize: '35px',
+        marginBottom: '10px'
     }
   });
 
@@ -22,7 +36,6 @@ class Contact extends React.Component{
             mounted: false,
             name: '',
             email: '',
-            multiline: 'Controlled',
         }
     }
     handleChange = name => event => {
@@ -42,10 +55,11 @@ class Contact extends React.Component{
         
         const { classes } = this.props;
         return(
+            <div>
+            <Typography align="center" variant="title" className={classes.paperTitle}>Hit me up</Typography>
             <Grow in={this.state.mounted} timeout={500}>
                 <Paper className={classes.root} elevation={4}>
                 
-                <Typography variant="title">Hit me up</Typography>
                 <form className={classes.formStyle} noValidate autoComplete="off">
                 <TextField
                 id="name"
@@ -76,14 +90,16 @@ class Contact extends React.Component{
                 fullWidth
                 />
 
+                <br/>
                 <Button variant="outlined" className={classes.button}>
         Send
       </Button>
                 </form>
-                
-                <Typography variant="body2">or contact me directly at kumailpirzada@gmail.com</Typography>
+                <br/>
+                <Typography variant="body2">or send me an email at kumailpirzada@gmail.com</Typography>
                 </Paper>
             </Grow>
+            </div>
         )
     }
 }
