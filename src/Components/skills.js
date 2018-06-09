@@ -42,10 +42,10 @@ const styles = theme => ({
 const tooltipRender = (data) => {
     return <div>
     {data.map(function(item, i){
-        let link = "images/skills/" + item.trim() + ".png";
+        let link = "images/skills/" + item + ".png";
         return <Tooltip title={item} key={i}>
                     <IconButton aria-label={item} style={iconMargin}>
-                        <Avatar alt={item} src={link}/>
+                        <Avatar alt={item} src={link.toLowerCase()}/>
                     </IconButton>
                 </Tooltip>
     })}
