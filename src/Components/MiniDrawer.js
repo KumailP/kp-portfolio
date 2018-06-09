@@ -19,6 +19,7 @@ import Collapse from '@material-ui/core/Collapse';
 import FontAwesome from 'react-fontawesome';
 import Tooltip from '@material-ui/core/Tooltip';
 import Hidden from '@material-ui/core/Hidden';
+import '../App.css';
 
 
 const drawerWidth = 200;
@@ -88,6 +89,11 @@ const styles = theme => ({
   },
   avatar: {
     marginRight: '10px'
+  },
+  navHeader: {
+    flex: 1,
+    fontFamily: 'Rancho, cursive',
+    fontSize: '25px',
   },
   socialLinks: {
     color: 'white',
@@ -160,7 +166,7 @@ class MiniDrawer extends React.Component {
             <Hidden smDown>
             <Avatar alt="Kumail Pirzada" src="images/self.jpg" className={classes.avatar} />
             </Hidden>
-            <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
+            <Typography variant="title" color="inherit" noWrap className={classes.navHeader}>
               Kumail Pirzada
             </Typography>
 
