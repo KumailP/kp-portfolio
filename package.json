@@ -5,13 +5,17 @@
   "dependencies": {
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
+    "compression": "^1.7.2",
     "email-validator": "^2.0.4",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-fontawesome": "^1.6.1",
     "react-material-ui-form-validator": "^1.1.4",
     "react-router-dom": "^4.3.0",
     "react-scripts": "1.1.4",
+    "serve-favicon": "^2.5.0",
     "typed.js": "^2.0.7"
   },
   "scripts": {

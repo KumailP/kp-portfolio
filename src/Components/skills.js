@@ -7,8 +7,18 @@ import Switch from '@material-ui/core/Switch';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import List from '@material-ui/core/List';
-import { frameworkLibrary, languages, devTools, basicView, other } from './data/skillsData';
+import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import Avatar from '@material-ui/core/Avatar';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { languagesData, frameworkLibraryData, devToolsData, otherData, basicViewData } from './data/skillsData';
 import '../App.css';
+
+const iconMargin = {
+    margin: '4px'
+}
 
 const styles = theme => ({
     paperStyle: {
@@ -28,6 +38,32 @@ const styles = theme => ({
         fontSize: '35px'
     }
   });
+
+const tooltipRender = (data) => {
+    return <div>
+    {data.map(function(item, i){
+        let link = "images/skills/" + item.trim() + ".png";
+        return <Tooltip title={item} key={i}>
+                    <IconButton aria-label={item} style={iconMargin}>
+                        <Avatar alt={item} src={link}/>
+                    </IconButton>
+                </Tooltip>
+    })}
+    </div>
+}
+
+const basicViewRender = (data) => {
+    return <div>
+             {data.map(function(item, i){
+             return <ListItem>
+            <ListItemIcon>
+                {item.icon}
+            </ListItemIcon>
+            <ListItemText primary={item.name} />
+            </ListItem>
+             })}
+            </div>
+}
 
 class Skills extends React.Component{
     constructor(props){
@@ -76,12 +112,10 @@ class Skills extends React.Component{
             <Grow in={this.state.mounted} timeout={500}>
                     <Paper className={classes.paperStyle} elevation={4}>
                         <div className={classes.hiddenStyle}>
-                        {/* <Typography variant="title" className={classes.title}>
-              Web Development
-            </Typography> */}
+                       
               
             <List component="nav">
-                {basicView}
+                {basicViewRender(basicViewData)}
 
             </List>
 
@@ -101,7 +135,7 @@ class Skills extends React.Component{
                         <Typography variant="headline" component="h3">
                         Languages
                         </Typography>
-                        {languages}
+                        {tooltipRender(languagesData)}
                     </Paper>
                     </Grow>
 
@@ -113,7 +147,7 @@ class Skills extends React.Component{
                         </Typography>
                         <div className={classes.hiddenStyle}>
                         
-                        {frameworkLibrary}
+                        {tooltipRender(frameworkLibraryData)}
 
                         </div>
                     </Paper>
@@ -124,7 +158,7 @@ class Skills extends React.Component{
                         <Typography variant="headline" component="h3">
                         Dev Tools
                         </Typography>
-                        {devTools}
+                        {tooltipRender(devToolsData)}
                     </Paper>
                     </Grow>
 
@@ -133,7 +167,7 @@ class Skills extends React.Component{
                         <Typography variant="headline" component="h3">
                         Other
                         </Typography>
-                        {other}
+                        {tooltipRender(otherData)}
                     </Paper>
                     </Grow>
 
