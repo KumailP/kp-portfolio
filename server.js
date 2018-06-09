@@ -3,14 +3,12 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const path = require('path')
-const favicon = require('serve-favicon')
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 3000);
 
 const app = express();
 
-app.use(favicon('favicon.ico'))
 const dev = app.get("env") !== "production";
 
 if(!dev){
