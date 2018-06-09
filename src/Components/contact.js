@@ -107,7 +107,7 @@ class Contact extends React.Component{
                 />
 
                 <br/>
-                <Button variant="outlined" className={classes.button} type="submit" disabled={this.state.disabled}>
+                <Button variant="outlined" className={classes.button} type="submit" disabled>
         Send
       </Button>
                 </form>
