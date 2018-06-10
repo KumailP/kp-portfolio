@@ -3,7 +3,7 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const path = require('path')
-var favicon = require('serve-favicon')
+const favicon = require('serve-favicon')
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 3000);

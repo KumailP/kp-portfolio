@@ -39,15 +39,17 @@ class Projects extends React.Component{
     render(){
         
         const { classes } = this.props;
+        
         return(
             <div className={classes.root}>
             <Typography align="center" variant="title" className={classes.paperTitle}>Some of my projects</Typography>
                 <Paper className={classes.root} elevation={4}>
                 <GridList cellHeight={220} spacing={0} className={classes.gridList} cols={2}>
                     {projectData.map(function(tile, i){
+                    let img = "images/projects/" + tile.title.trim().replace(/[^a-zA-Z0-9]/g,'_').toLowerCase(); + ".png";
                     return <Grow in={true} timeout={i ? (i*500) : (200)} key={tile.img} >
                                 <GridListTile>
-                                    <img src={tile.img} alt={tile.title} />
+                                    <img src="images/projects/{tile.img}" alt={tile.title} />
                                     <GridListTileBar
                                     title={tile.title}
                                     subtitle={<span>{tile.desc}</span>}
