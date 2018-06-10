@@ -3,11 +3,13 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const path = require('path')
+var favicon = require('serve-favicon')
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 3000);
 
 const app = express();
+
 
 const dev = app.get("env") !== "production";
 
@@ -17,6 +19,7 @@ if(!dev){
     app.use(morgan("common"));
 
     app.use(express.static(path.resolve(__dirname, "build")));
+    app.use(favicon(path.join(__dirname, 'build', 'images', 'favicons', 'favicon.ico')));
 
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "build", "index.html"));
