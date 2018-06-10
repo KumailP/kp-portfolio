@@ -70,11 +70,12 @@ class Contact extends React.Component{
             <Grow in={this.state.mounted} timeout={500}>
                 <Paper className={classes.root} elevation={4}>
                 
-                <form className={classes.formStyle} autoComplete="off" action="/sendMail" method="POST">
+                <form className={classes.formStyle} autoComplete="off" method="POST" action="/contact">
                 
                 <TextField
                     id="name"
                     label="Name"
+                    name="name"
                     className={classes.textField}
                     value={this.state.name}
                     onChange={this.handleChange('name')}
@@ -84,6 +85,7 @@ class Contact extends React.Component{
                 <br/>
                 <TextField
                 id="email"
+                name="email"
                 label="Email Address"
                 className={classes.textField}
                 value={this.state.email}
@@ -96,7 +98,8 @@ class Contact extends React.Component{
                 />
                 <br/>
                 <TextField
-                id="textarea"
+                id="msg"
+                name="msg"
                 label="Message"
                 placeholder="Message"
                 multiline
@@ -107,7 +110,7 @@ class Contact extends React.Component{
                 />
 
                 <br/>
-                <Button variant="outlined" className={classes.button} type="submit" disabled>
+                <Button variant="outlined" className={classes.button} type="submit" disabled={this.state.disabled}>
         Send
       </Button>
                 </form>

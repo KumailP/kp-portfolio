@@ -1,3 +1,5 @@
+// filename = replace everything except alphabets and numbers with _, toLowerCase, .png
+
 const tileData = [
   {
     title: 'TeacherDirectory',
