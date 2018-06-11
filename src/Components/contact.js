@@ -37,8 +37,10 @@ class Contact extends React.Component{
             mounted: false,
             name: '',
             email: '',
-            disabled: false
+            disabled: false,
+            sent: false
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange = name => event => {
         this.setState({
@@ -61,16 +63,23 @@ class Contact extends React.Component{
             this.setState({disabled: true, emailErrorMsg: "Invalid email"});
         }
     }
+    handleSubmit(e){
+        e.preventDefault();
+        document.getElementById("contactform").submit();
+        if(this.state.disabled === false)
+            this.setState({sent: true});
+    }
     render(){
         
         const { classes } = this.props;
         return(
             <div>
-            <Typography align="center" variant="title" className={classes.paperTitle}>Get in touch!</Typography>
-            <Grow in={this.state.mounted} timeout={500}>
+            <Typography align="center" variant="title" className={classes.paperTitle}>Get in touch! {this.state.message}</Typography>
+            <Grow in={this.state.mounted} timeout={1000}>
                 <Paper className={classes.root} elevation={4}>
                 
-                <form className={classes.formStyle} autoComplete="off" method="POST" action="/contact">
+                {this.state.sent ? <Grow in timeout={500}><Typography align="center" variant="display1">Message sent :)</Typography></Grow> : 
+                <div><form className={classes.formStyle} id="contactform" onSubmit={this.handleSubmit} autoComplete="off" method="POST" action="/contact/submit">
                 
                 <TextField
                     id="name"
@@ -116,6 +125,7 @@ class Contact extends React.Component{
                 </form>
                 <br/>
                 <Typography variant="body2">or send me an email at kumailpirzada@gmail.com</Typography>
+        </div>}
                 </Paper>
             </Grow>
             </div>
