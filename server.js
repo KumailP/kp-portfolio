@@ -84,7 +84,10 @@ app.post('/contact/submit', [
         });
 
 
-        return;
+        setTimeout(() => {
+            res.redirect('/contact')
+        }, 3000)
+        
     }
 });
 
