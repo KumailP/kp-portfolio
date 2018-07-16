@@ -7,7 +7,6 @@ var bodyParser = require("body-parser");
 const favicon = require("serve-favicon");
 const { check, validationResult } = require("express-validator/check");
 const nodemailer = require("nodemailer");
-const xoauth2 = require("xoauth2");
 
 require("dotenv").config();
 
@@ -16,7 +15,6 @@ const PORT = normalizePort(process.env.PORT || 80);
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "build")));
 app.use(
   favicon(path.join(__dirname, "build", "images", "favicons", "favicon.ico"))
 );
@@ -39,6 +37,19 @@ if (!dev) {
 if (dev) {
   app.use(morgan("dev"));
 }
+
+app.use(
+  "/tadrees",
+  express.static(path.resolve(__dirname, "tadrees", "build"))
+);
+app.get("/tadrees", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "tadrees", "build", "index.html"));
+});
+
+app.use("/", express.static(path.resolve(__dirname, "build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 app.post(
   "/contact/submit",
@@ -100,10 +111,6 @@ app.post(
     }
   }
 );
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
 
 const server = createServer(app);
 

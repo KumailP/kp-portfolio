@@ -19,8 +19,7 @@
     "react-router-dom": "^4.3.0",
     "react-scripts": "1.1.4",
     "serve-favicon": "^2.5.0",
-    "typed.js": "^2.0.7",
-    "xoauth2": "^1.2.0"
+    "typed.js": "^2.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,5 +30,6 @@
   },
   "devDependencies": {
     "dotenv": "^6.0.0"
-  }
+  },
+  "proxy": "http://localhost:80"
 }
